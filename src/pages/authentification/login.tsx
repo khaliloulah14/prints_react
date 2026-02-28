@@ -14,9 +14,9 @@ export default function LoginPage() {
     window.location.href = "/dashboard";
   };
   return (
-    <div className="bg-purple-600 flex items-center justify-center h-screen  w-full">
+    <div className="bg-red-500 flex items-center justify-center h-screen  w-full">
       <div className="bg-white p-8 rounded-xl">
-        <h1 className="text-4xl font-bold text-purple-800">
+        <h1 className="text-4xl font-bold text-red-500 text-center">
           Page de connexion
         </h1>
         <form onSubmit={handleSubmit} className="space-y-4 mt-8">
@@ -48,7 +48,7 @@ export default function LoginPage() {
           </div>
           <button
             type="submit"
-            className="w-full bg-purple-700 text-white px-4 py-2 rounded-md hover:bg-purple-800"
+            className="w-full bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-500  font-bold"
           >
             Se connecter
           </button>

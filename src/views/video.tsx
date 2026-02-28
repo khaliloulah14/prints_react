@@ -2,7 +2,7 @@ import { FaRegCirclePlay } from "react-icons/fa6";
 
 export default function VideoSection() {
   return (
-    <div className="flex flex-col items-center justify-center py-12 w-full bg-[#f0e2e2]">
+    <div className="flex flex-col items-center justify-center py-12 w-full bg-white">
       
       {/* Titre H1 stylisé */}
       <h1 className="text-3xl md:text-4xl font-black text-gray-800 uppercase tracking-tight mb-8">
@@ -10,13 +10,13 @@ export default function VideoSection() {
       </h1>
 
       {/* Conteneur de la vidéo */}
-      <div className="relative group cursor-pointer overflow-hidden rounded-3xl shadow-2xl border-4 border-white mx-6">
+      <div className="relative group cursor-pointer overflow-hidden rounded-3xl shadow-2xl border-4 border-white mx-0 md:mx-4 w-full max-w-[800px]">
         
         {/* L'image (Thumbnail) */}
         <img 
           src="/images/imgi_nice.jpg" 
           alt="Nice design preview" 
-          className="w-full max-w-[900px] aspect-video object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full max-w-/[500px] aspect-video object-cover transition-transform duration-700 group-hover:scale-105"
         />
         
         {/* Overlay avec l'icône Play centrée */}

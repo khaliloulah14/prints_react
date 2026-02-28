@@ -7,7 +7,7 @@ export default function ColorSection() {
       
       {/* 1. BLOC SUPÉRIEUR (Gris clair) */}
       {/* pb-24 sur desktop permet de descendre la bande rouge par rapport au texte */}
-      <div className="w-full max-w-[1200px] px-6 pt-12 md:pt-24 pb-12 md:pb-24 flex flex-col md:flex-row items-center md:items-start justify-between relative min-h-[400px]">
+      <div className="w-full max-w-300 px-6 pt-12 md:pt-24 pb-12 md:pb-24 flex flex-col md:flex-row items-center md:items-start justify-between relative min-h-100">
         
         {/* IMAGE : À gauche, descendue pour toucher la bande rouge */}
         <div className="w-full md:w-1/2 flex justify-center md:justify-start z-20 order-2 md:order-1 mt-8 md:mt-0">
@@ -15,7 +15,7 @@ export default function ColorSection() {
             src="/images/girl_color.png"
             alt="Color of the month"
             /* md:-bottom-12 permet à l'image de dépasser du bloc gris et d'entrer dans le rouge */
-            className="w-full max-w-[450px] md:max-w-[550px] h-auto object-contain mix-blend-multiply md:absolute md:-bottom-0 md:left-0 select-none"
+            className="w-full max-w-112.5 md:max-w-137.5 h-auto object-contain mix-blend-multiply md:absolute md:bottom-0 md:left-0 select-none"
           />
         </div>
 
@@ -32,8 +32,8 @@ export default function ColorSection() {
       {/* La bande rouge commence juste après le pb-24 du bloc précédent */}
       <div className="w-full bg-[#f6335d] pt-24 pb-16 md:pt-32 md:pb-20 px-6 flex flex-col items-center justify-center relative z-0">
         
-        <div className="max-w-[1200px] w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-          <h2 className="text-white text-3xl md:text-5xl font-black uppercase tracking-tight italic text-center md:text-left max-w-[600px] leading-tight">
+        <div className="max-w-300 w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+          <h2 className="text-white text-3xl md:text-5xl font-black uppercase tracking-tight italic text-center md:text-left max-w-150 leading-tight">
             Grab This Limited Time Offer
           </h2>
 
@@ -42,7 +42,7 @@ export default function ColorSection() {
               label="ORDER NOW"
               className="bg-transparent border-none text-white font-bold text-sm tracking-[0.2em] flex items-center gap-3 hover:scale-105 transition-transform"
             />
-            <div className="h-[1px] w-full bg-white/60 mt-2"></div>
+            <div className="h-px w-full bg-white/60 mt-2"></div>
           </div>
         </div>
       </div>

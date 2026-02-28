@@ -10,7 +10,7 @@ const menuItems: MenuItem[] = [
   { name: "All Products", link: "/all-products" },
   { name: "About", link: "/about" },
   { name: "Contact", link: "/contact" },
-  { name: "Account", link: "/account", icon: <FaUser size={20} /> },
+  { name: "Account", link: "/login", icon: <FaUser size={20} /> },
 ];
 
 
