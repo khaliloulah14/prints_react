@@ -247,8 +247,7 @@ export default function AllProducts() {
             <span className="text-white">Catalog</span>
           </h1>
           <div
-            className="h-1 w-24 mx-auto rounded-full shadow-[0_0_15px_#ff1d58]"
-            className="bg-red-500"
+            className="h-1 w-24 mx-auto rounded-full shadow-[0_0_15px_#ff1d58] bg-red-500"
           ></div>
         </header>
 

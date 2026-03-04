@@ -7,11 +7,11 @@ export interface logo {
   height?: number;
 }
 
-export interface menuItem {
+export interface MenuItem {
   label: string;
-  href: string;
+  link: string;
   icon?: react.ReactNode;
-  subMenu?: menuItem[];
+  subMenu?: MenuItem[];
 }
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

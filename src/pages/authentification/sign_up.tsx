@@ -17,7 +17,7 @@ export default function SignUpPage() {
     localStorage.setItem("telephone", telephone);
 
     alert("Connexion réussie !");
-    window.location.href = "/login";
+    window.location.href = "/login"; 
   };
   return (
     <div className="bg-purple-600 flex items-center justify-center h-screen  w-full">

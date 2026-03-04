@@ -6,11 +6,11 @@ import { SlBasket } from "react-icons/sl";
 import { FiMenu, FiX } from "react-icons/fi"; // Ajouté
 
 const menuItems: MenuItem[] = [
-  { name: "Home", link: "/" },
-  { name: "All Products", link: "/all-products" },
-  { name: "About", link: "/about" },
-  { name: "Contact", link: "/contact" },
-  { name: "Account", link: "/login", icon: <FaUser size={20} /> },
+  { label: "Home", link: "/" },
+  { label: "All Products", link: "/all-products" },
+  { label: "About", link: "/about" },
+  { label: "Contact", link: "/contact" },
+  { label: "Account", link: "/login", icon: <FaUser size={20} /> },
 ];
 
 
@@ -43,7 +43,7 @@ export default function HeaderSection() {
           `}>
             <ul className="flex flex-col md:flex-row items-center gap-8 py-4 md:py-0">
               {menuItems.map((item) => (
-                <li key={item.name}>
+                <li key={item.label}>
                   <NavLink 
                     to={item.link} 
                     className={({ isActive }) => `
@@ -53,7 +53,7 @@ export default function HeaderSection() {
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.icon && <span>{item.icon}</span>}
-                    {item.name}
+                    {item.label}
                   </NavLink>
                 </li>
               ))}
