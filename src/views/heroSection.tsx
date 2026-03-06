@@ -4,12 +4,12 @@ import Button from "../components/button" // On utilise votre bouton avec l'icô
 export default function HeroSection() {
   return (
     <section className="relative bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24 flex flex-col md:flex-row items-center">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
         
         {/* BLOC TEXTE */}
-        <div className="w-full md:w-1/2 flex flex-col items-start text-left z-10">
+        <div className="w-full md:w-1/2 flex flex-col items-start ">
           <TitleSection
-            title="products that speak your style"
+            title="Products that speak your style"
             description="Exprimez votre style unique avec nos produits hautes définitions sur coton 100% bio. Conçus pour durer, portés pour impressionner."
           />
           <Button 
@@ -19,11 +19,11 @@ export default function HeroSection() {
         </div>
 
         {/* BLOC IMAGE AVEC FOND SUPPRIMÉ */}
-        <div className="w-full md:w-1/2 mt-12 md:mt-0 flex justify-center md:justify-end">
+        <div className="w-full md:w-1/2 flex justify-center md:justify-end">
           <img 
             src="/images/design_1.png" // Rappel: retire /public/
             alt="Customized Printed Tees" 
-            className="w-full max-w-500 object-contain mix-blend-multiply" // <-- AJOUT ICI
+            className="w-full h-150 object-top object-cover " // <-- AJOUT ICI
           />
         </div>
 

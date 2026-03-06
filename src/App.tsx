@@ -12,6 +12,7 @@ import OrderList from "./pages/dashboard.tsx/commandes";
 import ProductCatalog from "./pages/dashboard.tsx/produits";
 import CustomerList from "./pages/dashboard.tsx/clients";
 import SettingsView from "./pages/dashboard.tsx/parametres";
+import ProductDetail from "./pages/produitDetail"; // Importé
 
 function App() {
   return (
@@ -38,7 +39,8 @@ function App() {
         <Route path="clients" element={<CustomerList />} />
         <Route path="parametres" element={<SettingsView />} />
       </Route>
-
+      {/* Route pour le détail du produit */}
+      <Route path="/product/:id" element={<ProductDetail />} />
     </Routes>
   );
 }
