@@ -14,6 +14,7 @@ import CustomerList from "./pages/dashboard.tsx/clients";
 import SettingsView from "./pages/dashboard.tsx/parametres";
 import ProductDetail from "./pages/produitDetail"; // Importé
 
+
 function App() {
   return (
     <Routes>
