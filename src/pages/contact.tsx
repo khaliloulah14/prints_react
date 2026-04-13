@@ -20,7 +20,7 @@ const ContactPage = () => {
       {/* SECTION HÉROS */}
       <section className="py-24 text-center bg-red-600">
         <h1 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter text-white">
-          Contactez-Nous
+          Contact<span className=" text-white">-Us</span>
         </h1>
         <div className="h-2 w-24 mx-auto mt-6 rounded-full bg-white"></div>
       </section>

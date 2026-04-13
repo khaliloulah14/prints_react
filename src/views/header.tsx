@@ -4,6 +4,7 @@ import type { MenuItem } from "../lib/types";
 import { FaUser } from "react-icons/fa";
 import { SlBasket } from "react-icons/sl";
 import { FiMenu, FiX } from "react-icons/fi"; // Ajouté
+import { usePanier } from "../hooks/usePanier";
 
 const menuItems: MenuItem[] = [
   { label: "Home", link: "/" },
@@ -16,6 +17,7 @@ const menuItems: MenuItem[] = [
 
 export default function HeaderSection() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { panier } = usePanier();
 
   return (
     // On garde le header en pleine largeur pour le fond blanc et l'ombre
@@ -62,10 +64,11 @@ export default function HeaderSection() {
 
           {/* 3. PANIER */}
           <div className="flex items-center gap-5 border-l pl-8 border-gray-200">
-            <Link to="/cart" className="relative text-gray-800 hover:text-red-600 transition-colors">
+            <Link to="/panier" className="relative text-gray-800 hover:text-red-600 transition-colors">
               <SlBasket size={22} />
+              {/* Afficher le vrai nombre d'articles */}
               <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center font-bold">
-                0
+                {panier.length}
               </span>
             </Link>
 

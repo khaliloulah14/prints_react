@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from "sonner";
 import Home from "./pages/home";
 import AllProducts from "./pages/allProducts";
 import About from "./pages/about";
@@ -13,10 +14,13 @@ import ProductCatalog from "./pages/dashboard.tsx/produits";
 import CustomerList from "./pages/dashboard.tsx/clients";
 import SettingsView from "./pages/dashboard.tsx/parametres";
 import ProductDetail from "./pages/produitDetail"; // Importé
+import Panier from "./pages/panier"; // Importé
 
 
 function App() {
   return (
+    <>
+      <Toaster position="top-right" richColors/>
     <Routes>
       {/* Pages avec Header/Footer */}
       <Route path="/" element={<Layout />}>
@@ -25,6 +29,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Route>
+      <Route path="/panier" element={<Panier />} />
 
       {/* Pages sans Header/Footer (Plein écran) */}
       <Route path="/login" element={<LoginPage />} />
@@ -43,6 +48,7 @@ function App() {
       {/* Route pour le détail du produit */}
       <Route path="/product/:id" element={<ProductDetail />} />
     </Routes>
+    </>
   );
 }
 

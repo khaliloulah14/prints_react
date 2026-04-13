@@ -241,15 +241,12 @@ export default function AllProducts() {
   return (
     <div className="w-full min-h-screen py-16 px-4 bg-[#f7f9fc] text-white">
       <div className="max-w-7xl mx-auto">
-        <header className="mb-20 text-center">
-          <h1 className="text-5xl bg-red-500 font-black tracking-tighter uppercase mb-4 italic">
-            <span className="text-white">Full</span>{" "}
-            <span className="text-white">Catalog</span>
-          </h1>
-          <div
-            className="h-1 w-24 mx-auto rounded-full shadow-[0_0_15px_#ff1d58] bg-red-500"
-          ></div>
-        </header>
+      <section className="py-24 text-center bg-red-600">
+        <h1 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter text-white">
+          All Products
+        </h1>
+        <div className="h-2 w-24 mx-auto mt-6 rounded-full bg-white"></div>
+      </section>
 
         {categories.map((cat) => {
           const categoryProducts = products.filter((p) => p.category === cat);

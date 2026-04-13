@@ -63,7 +63,7 @@ const AboutPage = () => {
       {/* 1. HERO SIMPLE (Même style que Contact) */}
       <section className="py-24 text-center bg-red-600">
         <h1 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter text-white">
-          A <span className=" text-white">Propos</span>
+          About<span className=" text-white">-Us</span>
         </h1>
         <div className="h-2 w-24 mx-auto mt-6 rounded-full bg-white"></div>
       </section>
