@@ -6,8 +6,8 @@ import Card from "../components/card";
 export default function HundredSection() {
   return (
     <section className="w-full bg-white flex justify-center overflow-hidden">
-      {/* Correction : max-w-[1300px] (suppression du slash) et mx-auto pour le centrage */}
-      <div className="max-w-[1200px] w-full mx-auto px-6 md:px-12 py-16 md:py-24 flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-20">
+      {/* Correction : max-w-300 (suppression du slash) et mx-auto pour le centrage */}
+      <div className="max-w-300 w-full mx-auto px-6 md:px-12 py-16 md:py-24 flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-20">
         
         {/* Bloc gauche : Texte & bouton */}
         <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
@@ -18,7 +18,7 @@ export default function HundredSection() {
           <div className="mt-8">
             <Button 
               label="Get Started" 
-              className="bg-[#f6335d] text-white px-10 py-4 rounded-full font-bold shadow-lg hover:bg-[#d42a4e] transition-all duration-300 transform hover:scale-105 active:scale-95"
+              className="bg-white text-black px-10 py-4 rounded-full font-bold"
             />
           </div>
         </div>

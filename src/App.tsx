@@ -15,12 +15,13 @@ import CustomerList from "./pages/dashboard.tsx/clients";
 import SettingsView from "./pages/dashboard.tsx/parametres";
 import ProductDetail from "./pages/produitDetail"; // Importé
 import Panier from "./pages/panier"; // Importé
+import EditProductPage from "./pages/dashboard.tsx/editProductPage";
 
 
 function App() {
   return (
     <>
-      <Toaster position="top-right" richColors/>
+      <Toaster position="bottom-right"richColors/>
     <Routes>
       {/* Pages avec Header/Footer */}
       <Route path="/" element={<Layout />}>
@@ -28,12 +29,14 @@ function App() {
         <Route path="/all-products" element={<AllProducts />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/panier" element={<Panier />} />
       </Route>
-      <Route path="/panier" element={<Panier />} />
+      
 
       {/* Pages sans Header/Footer (Plein écran) */}
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/sign-up" element={<SignUpPage />} />
+      <Route path="/signup" element={<SignUpPage />} />
 
       
       {/* Sous-routes du Dashboard */}  
@@ -44,9 +47,8 @@ function App() {
         <Route path="produits" element={<ProductCatalog />} />
         <Route path="clients" element={<CustomerList />} />
         <Route path="parametres" element={<SettingsView />} />
+        <Route path="/dashboard/produits/editProductsPage/:id" element={<EditProductPage />} />
       </Route>
-      {/* Route pour le détail du produit */}
-      <Route path="/product/:id" element={<ProductDetail />} />
     </Routes>
     </>
   );

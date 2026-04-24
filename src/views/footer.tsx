@@ -36,9 +36,9 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 flex flex-col items-center">
         
         {/* MENU DE NAVIGATION */}
-        <nav className="flex flex-col items-center gap-4 mb-10 font-medium tracking-wide">
+        <nav className="flex flex-row items-center gap-8 mb-10 font-medium tracking-wide">
           {['Home', 'All products', 'About HDX', 'My account', 'Contact'].map((link) => (
-            <a key={link} href="#" className="hover:text-cyan-400 transition-colors duration-300">
+            <a key={link} href="#" className="hover:text-red-500 transition-colors duration-300">
               {link}
             </a>
           ))}
@@ -55,10 +55,7 @@ export default function Footer() {
         {/* SECTION COPYRIGHT */}
         <div className="w-full border-t border-white/5 pt-8 text-center space-y-2">
           <p className="text-sm text-gray-400">
-            Copyright © 2026 <span className="text-white">Custom Printing Pro</span>
-          </p>
-          <p className="text-[11px] text-gray-500 uppercase tracking-widest">
-            Powered by Custom Printing Pro
+            Copyright © 2026 <span className="text-white">Ibrahima Diaite</span>
           </p>
         </div>
       </div>

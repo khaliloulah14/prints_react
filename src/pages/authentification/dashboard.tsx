@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "sonner";
 
 import {
   LayoutDashboard,
@@ -14,6 +15,9 @@ import { NavLink, Outlet } from "react-router-dom";
 
 export default function Dashboard() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  const getUser = localStorage.getItem("user");
+  const user = getUser ? JSON.parse(getUser) : null;
 
   const dataSideBar = [
     {
@@ -63,11 +67,8 @@ export default function Dashboard() {
       >
         <div className="p-6 flex items-center justify-between border-b border-gray-700">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-[#FF2D55] rounded flex items-center justify-center font-bold text-xs italic">
-              HDX
-            </div>
             <span className="font-bold text-xl tracking-tight uppercase">
-              HDX <span className="text-[#FF2D55]">PRINTS</span>
+              <img src="images/imgi_1_site-logo-free-img-1.png" alt="logo" />
             </span>
           </div>
           <button className="lg:hidden" onClick={() => setSidebarOpen(false)}>
@@ -89,7 +90,7 @@ export default function Dashboard() {
 
         <div className="p-4 border-t border-gray-700">
           <button
-            onClick={() => alert("Déconnexion...")}
+            onClick={() => toast.info("Déconnexion...")} 
             className="w-full flex items-center gap-3 p-3 text-red-400 hover:bg-red-500/10 rounded-xl transition-all font-medium"
           >
             <LogOut size={20} /> Déconnexion
@@ -114,10 +115,9 @@ export default function Dashboard() {
           </div>
           <div className="flex items-center gap-3">
             <div className="hidden sm:block text-right">
-              <p className="text-xs text-gray-400 font-medium">
-                Boutique Active
-              </p>
-              <p className="text-sm font-bold text-gray-700">Ibrahima Diaite</p>
+             
+              <p className="text-sm font-bold text-gray-700">{user?.username}</p>
+              <p className="text-xs text-gray-400 font-mediu">{user?.email}</p>
             </div>
             <div className="w-10 h-10 rounded-full bg-[#FF2D55] flex items-center justify-center text-white font-bold">
               ID

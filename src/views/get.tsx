@@ -8,7 +8,7 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ image, label, className = "", tag = "HOT" }: ProductCardProps) => (
-  <div className={`relative group overflow-hidden flex flex-col items-center justify-center border-r border-b border-gray-100 bg-[#f5f5f5] w-full lg:w-1/3 min-h-[350px] cursor-pointer transition-all duration-500 ${className}`}>
+  <div className={`relative group overflow-hidden flex flex-col items-center justify-center border-r border-b border-gray-100 bg-[#f5f5f5] w-full lg:w-1/3 min-h-87.5 cursor-pointer transition-all duration-500 ${className}`}>
     
     {/* --- BULLES MULTICOLORES (Pointer-events-none pour ne pas bloquer le clic) --- */}
     <div className="pointer-events-none bg-transparent group-hover:scale-[2] -top-12 -left-12 absolute shadow-[inset_0_0_25px_rgba(234,179,8,0.5)] rounded-full transition-all duration-1000 w-24 h-24 opacity-0 group-hover:opacity-100"></div>
@@ -59,12 +59,12 @@ export default function GetSection() {
       </div>
 
       {/* GRILLE PRINCIPALE : Centrage critique ici */}
-      <div className="max-w-[1200px] w-full mx-auto px-4">
+      <div className="max-w-300 w-full mx-auto px-4">
         <div className="flex flex-col border-l border-t border-gray-100 shadow-sm">
           
           {/* LIGNE 1 */}
           <div className="flex flex-col lg:flex-row">
-            <ProductCard image="/images/2-shirt.jfif" label="Premium T-shirt" tag="NEW" />
+            <ProductCard image="/images/lacoste_8.jfif" label="Premium Lacoste" tag="NEW" />
             <ProductCard image="/images/shoes_1.jfif" label="Sport Shoes" tag="HOT" />
             <ProductCard image="/images/2_caps.jfif" label="Classic Cap" tag="SALE" />
           </div>
@@ -72,12 +72,12 @@ export default function GetSection() {
           {/* LIGNE 2 */}
           <div className="flex flex-col lg:flex-row">
             {/* Case vide décorative */}
-            <div className="hidden lg:block w-1/3 min-h-[350px] border-r border-b border-gray-100 bg-[#fbfbfb]"></div>
+            <div className="hidden lg:block w-1/3 min-h-87.5 border-r border-b border-gray-100 bg-[#fbfbfb]"></div>
 
-            <ProductCard image="/images/2025_mode_jean.jfif" label="Slim Fit Jean" tag="TREND" />
+            <ProductCard image="/images/pants_2.jfif" label="Slim Fit Jean" tag="TREND" />
 
             {/* BLOC ACTION FINAL */}
-            <div className="relative group w-full lg:w-1/3 min-h-[350px] flex flex-col items-center justify-center border-r border-b border-gray-100 bg-white overflow-hidden cursor-pointer">
+            <div className="relative group w-full lg:w-1/3 min-h-87.5 flex flex-col items-center justify-center border-r border-b border-gray-100 bg-white overflow-hidden cursor-pointer">
               <div className="absolute inset-0 bg-red-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
               
               <div className="relative z-10 flex flex-col items-center group-hover:scale-110 transition-transform duration-500">

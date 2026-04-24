@@ -1,23 +1,49 @@
 import React, { useState } from "react";
+import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
+import { signUpService } from "../../api/auth.service";
 
 export default function SignUpPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [prenom, setPrenom] = useState("");
-  const [nom, setNom] = useState("");
-  const [telephone, setTelephone] = useState("");
+  const [form, setForm] = useState<{
+    username: string;
+    password: string;
+    email: string;
+  }>({
+    username: "",
+    email: "",
+    password: "",
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
+    setLoading(true);
 
-    localStorage.setItem("email", email);
-    localStorage.setItem("password", password);
-    localStorage.setItem("prenom", prenom);
-    localStorage.setItem("nom", nom);
-    localStorage.setItem("telephone", telephone);
+    try {
+      const reponse = await signUpService(form);
+      const data = reponse.user;
 
-    alert("Connexion réussie !");
-    window.location.href = "/login"; 
+      localStorage.setItem("user", JSON.stringify(data));
+      toast.success("inscription réussie !");
+      navigate("/login");
+    } catch (err) {
+      console.error("Login failed:", err);
+      setError("Identifiants incorrects");
+      toast.error("inscription échouée !");
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <div className="bg-purple-600 flex items-center justify-center h-screen  w-full">
@@ -26,59 +52,32 @@ export default function SignUpPage() {
           Page de d'inscription
         </h1>
         <form onSubmit={handleSubmit} className="space-y-4 mt-8">
-          <div className="flex items-center gap-3">
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Prenom
-              </label>
-              <input
-                type="text"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500"
-                placeholder="Entrez votre email"
-                value={email}
-                onChange={(e) => setPrenom(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Nom
-              </label>
-              <input
-                type="text"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500"
-                placeholder="Entrez votre email"
-                value={email}
-                onChange={(e) => setNom(e.target.value)}
-                required
-              />
-            </div>
-          </div>
-
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              telephone
-            </label>
-            <input
-              type="phone"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500"
-              placeholder="Entrez votre email"
-              value={email}
-              onChange={(e) => setTelephone(e.target.value)}
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Email
+              email
             </label>
             <input
               type="email"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500"
               placeholder="Entrez votre email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={form.email}
+              onChange={handleChange}
+              required
+              name="email"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              username
+            </label>
+            <input
+              type="text"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500"
+              placeholder="Entrez votre email"
+              value={form.username}
+              onChange={handleChange}
+              name="username"
               required
             />
           </div>
@@ -90,19 +89,22 @@ export default function SignUpPage() {
               type="password"
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500"
               placeholder="Entrez votre mot de passe"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={form.password}
+              onChange={handleChange}
+              name="password"
               required
             />
           </div>
+          {error && <p className="text-red-500 text-sm">{error}</p>}
           <button
+            className="w-full h-12 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
-            className="w-full bg-purple-700 text-white px-4 py-2 rounded-md hover:bg-purple-800"
+            disabled={loading}
           >
-            S'inscrire
+            {loading ? "Loading..." : "S'inscrire"}
           </button>
         </form>
       </div>
     </div>
   );
-} 
+}

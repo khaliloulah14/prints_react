@@ -111,20 +111,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* 4. APPEL À L'ACTION (CTA) */}
-      <section className="py-24 px-4 text-center">
-        <div className="max-w-2xl mx-auto bg-gray-900 p-12 rounded-/[2rem] shadow-xl">
-          <h2 className="text-3xl font-black uppercase italic text-white mb-6">
-            Prêt à lancer votre projet ?
-          </h2>
-          <button 
-            className="px-10 py-4 font-black uppercase italic rounded-full transition-transform hover:scale-105"
-            style={{ backgroundColor: hdxPink, color: 'white' }}
-          >
-            Nous contacter
-          </button>
-        </div>
-      </section>
+  
 
       {/* 5. FAQ SECTION */}
       <FAQSection />

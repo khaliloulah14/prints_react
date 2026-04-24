@@ -1,108 +1,84 @@
-import Button from "../components/button"
-import TitleSection from "../components/title"
+import Button from "../components/button";
+import { useNavigate } from "react-router-dom";
 
 export default function TShirt() {
+  const navigate = useNavigate();
+  const cards = [
+    {
+      image: "/images/lacoste_7.jfif",
+      promo: "-25% PROMO",
+      promoBg: "bg-[#f6335d]",
+      title: "T-Shirt Holographic",
+      description: "Design pilier, reflets furtifs pour un style unique.",
+      oldPrice: "5 000",
+      newPrice: "4 500",
+      cta: "Nous contacter",
+    },
+    {
+      image: "/images/shoes_2.jfif",
+      promo: "-10% PROMO",
+      promoBg: "bg-blue-600",
+      title: "Nike Zoom Galactic",
+      description: "Performance ultime et style futuriste pour le sport.",
+      oldPrice: "10 000",
+      newPrice: "6 500",
+      cta: "Nous contacter",
+    },
+  ];
+
   return (
     <section className="w-full py-10 md:py-16 px-4 bg-white">
-      <div className="max-w-350 mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-        
-        {/* CARTE 1 : T-SHIRT */}
-        <div className="relative group h-125 sm:h-150 rounded-4xl md:rounded-[2.5rem]transition-all duration-500 hover:shadow-[0_0_40px_rgba(246,51,93,0.4)]">
-          
-          <div 
-            className="relative h-full w-full flex flex-col justify-end items-start md:items-center p-6 md:p-10 md:rounded-[2.5rem] overflow-hidden"
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        {cards.map((card) => (
+          <div
+            key={card.title}
+            className="relative group h-125 rounded-3xl overflow-hidden"
             style={{
-              backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 60%), url('/images/red_shirt.jpg')",
-              backgroundSize: 'contain',
-              backgroundPosition: 'center'
+              backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 60%), url('${card.image}')`,
+              backgroundSize: "contain",
+              backgroundPosition: "center",
             }}
           >
-            <div className="absolute top-6 left-6 md:top-8 md:left-8 z-30 bg-[#f6335d] text-white text-[10px] md:text-xs font-black px-3 py-1.5 md:px-4 md:py-2 rounded-xl shadow-lg">
-              -25% PROMO
+            {/* Badge promo */}
+            <div
+              className={`absolute top-6 left-6 z-30 ${card.promoBg} text-white text-[10px] font-black px-3 py-1.5 rounded-xl`}
+            >
+              {card.promo}
             </div>
 
-            <div className="relative z-10 flex flex-col items-start md:items-center transition-all duration-500 group-hover:-translate-y-1.25 w-full">
-              <div className="text-white text-left md:text-center scale-90 md:scale-100 origin-left md:origin-center w-full">
-                <TitleSection 
-                  title="T-Shirt Holographic" 
-                  description="Design pilier, reflets furtifs pour un style unique." 
-                />
-              </div>
-              
-              <div className="flex flex-col items-start md:items-center mt-1 md:mt-2 mb-4 md:mb-6">
-                <span className="text-white line-through text-base md:text-lg">8 000 CFA</span>
-                <span className="text-white text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter drop-shadow-[0_0_15px_rgba(74,222,128,0.4)]">
-                  5 000 <span className="text-xs md:text-sm font-bold text-white">CFA</span>
+            {/* Contenu bas */}
+            <div className="absolute bottom-0 left-0 right-0 z-10 p-8 flex flex-col gap-3 transition-transform duration-500 group-hover:-translate-y-2">
+              <h2 className="text-white text-2xl font-black">{card.title}</h2>
+              <p className="text-white/70 text-sm">{card.description}</p>
+
+              <div className="flex flex-col">
+                <span className="text-white/50 line-through text-sm">
+                  {card.oldPrice} CFA
+                </span>
+                <span className="text-white text-4xl font-black tracking-tight">
+                  {card.newPrice} <span className="text-sm font-bold">CFA</span>
                 </span>
               </div>
 
-              <div className="flex flex-wrap gap-3 md:gap-4 items-center justify-start md:justify-center w-full">
-                <button 
-                  className="flex-1 sm:flex-none bg-white text-black h-10 md:h-12 px-5 md:px-6 rounded-xl md:rounded-2xl font-bold hover:scale-105 transition-transform shadow-lg text-sm md:text-base"
-                  type="button"
+              <div className="flex gap-3 mt-2">
+                <button
+                  onClick={() => navigate(`/product/29`)}
+                  onClick={() => navigate(`/product/17`)}
+                  className="flex-1 bg-white text-black h-11 px-5 rounded-xl font-bold hover:scale-105 transition-transform text-sm"
                 >
-                  Détails
+                  Voir les détails
                 </button>
-                <div className="flex-1 sm:flex-none">
-                   <Button 
-                    label="Acheter maintenant" 
-                    className="w-full bg-transparent border-2 border-white text-white h-10 md:h-12 px-5 md:px-6 rounded-xl md:rounded-2xl font-bold hover:bg-white hover:text-black transition-all text-sm md:text-base" 
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        {/* CARTE 2 : SHOES */}
-        <div className="relative group h-125 sm:h-150 rounded-4xl md:rounded-[2.5rem] p-0.5 overflow-hidden transition-all duration-500">
-        
-          <div 
-            className="relative h-full w-full flex flex-col justify-end items-start md:items-center p-6 md:p-10 rounded-4xl md:rounded-[2.5rem] overflow-hidden"
-            style={{
-              backgroundImage: "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 60%), url('/images/nike_air_zoom.jfif')",
-              backgroundSize: 'contain',
-              backgroundPosition: 'center'
-            }}
-          >
-            <div className="absolute top-6 left-6 md:top-8 md:left-8 z-30 bg-blue-600 text-white">
-              -10% PROMO
-            </div>
-
-            <div className="relative z-10 flex flex-col items-start md:items-center transition-all duration-500 group-hover:-translate-y-1.25 w-full">
-              <div className="text-white text-left md:text-center scale-90 md:scale-100 origin-left md:origin-center w-full">
-                <TitleSection 
-                  title="Nike Zoom Galactic" 
-                  description="Performance ultime et style futuriste pour le sport." 
+                <Button
+                  label={card.cta}
+                    onClick={() => navigate(`/contact`)}
+                  className="flex-1 bg-transparent border-2 border-white text-white h-11 px-5 rounded-xl font-bold hover:bg-white hover:text-black transition-all text-sm"
                 />
               </div>
-
-              <div className="flex flex-col items-start md:items-center mt-1 md:mt-2 mb-4 md:mb-6">
-                <span className="text-white line-through text-base md:text-lg">15 000 CFA</span>
-                <span className="text-white text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter drop-shadow-[0_0_15px_rgba(96,165,250,0.4)]">
-                  10 000 <span className="text-xs md:text-sm font-bold text-white">CFA</span>
-                </span>
-              </div>
-
-              <div className="flex flex-wrap gap-3 md:gap-4 items-center justify-start md:justify-center w-full">
-                <button 
-                  className="flex-1 sm:flex-none bg-white text-black h-10 md:h-12 px-5 md:px-6 rounded-xl md:rounded-2xl font-bold hover:scale-105 transition-transform shadow-lg text-sm md:text-base"
-                  type="button"
-                >
-                  Détails
-                </button>
-                <div className="flex-1 sm:flex-none">
-                  <Button 
-                    label="Découvrir" 
-                    className="w-full bg-transparent border-2 border-white/20 text-white h-10 md:h-12 px-5 md:px-6 rounded-xl md:rounded-2xl font-bold hover:bg-white hover:text-white transition-all text-sm md:text-base" 
-                  />
-                </div>
-              </div>
             </div>
           </div>
-        </div>
-
+        ))}
       </div>
     </section>
-  )
+  );
 }

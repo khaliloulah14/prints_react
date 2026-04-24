@@ -1,5 +1,6 @@
 
-import { useState, useEffect } from "react";
+import { useState} from "react";
+import { toast } from "sonner";
 
 type Product = {
   id: number;
@@ -18,13 +19,13 @@ export function usePanier() {
   const ajouterAuPanier = (product: Product) => {
     const dejaPresent = panier.find((p) => p.id === product.id);
     if (dejaPresent) {
-      alert("⚠️ Ce produit est déjà dans votre panier !");
+      toast.error("Ce produit est déjà dans votre panier !");
       return;
     }
     const newPanier = [...panier, product];
     setPanier(newPanier);
     localStorage.setItem("panier", JSON.stringify(newPanier));
-    alert(`✅ "${product.name}" ajouté au panier !`);
+    toast.success("Produit ajouté au panier !");
   };
 
   const supprimerDuPanier = (id: number) => {
